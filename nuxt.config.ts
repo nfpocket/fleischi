@@ -3,13 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: false },
   css: ["~/assets/styles/tailwind.css"],
-  modules: [
-    "@nuxt/ui",
-    "@nuxtjs/supabase",
-    "@vueuse/nuxt",
-    "@vite-pwa/nuxt",
-    "nuxt-typed-router"
-  ],
+  modules: ["@pinia/nuxt", "@nuxt/ui", "@nuxtjs/supabase", "@vueuse/nuxt", "@vite-pwa/nuxt", "nuxt-typed-router"],
   future: {
     compatibilityVersion: 4,
   },
@@ -19,7 +13,7 @@ export default defineNuxtConfig({
         class: "h-full",
       },
       bodyAttrs: {
-        class: "h-full",
+        class: "h-full flex flex-col",
       },
       charset: "utf-8",
       title: "Fleischi",
@@ -36,7 +30,6 @@ export default defineNuxtConfig({
     redirectOptions: {
       login: "/auth/login",
       callback: "/auth/callback",
-      exclude: ["/"],
     },
   },
   ui: {
@@ -44,5 +37,10 @@ export default defineNuxtConfig({
   },
   pwa: {
     /* PWA options */
+  },
+  routeRules: {
+    "/": {
+      redirect: { to: "/dashboard", statusCode: 301 },
+    },
   },
 });

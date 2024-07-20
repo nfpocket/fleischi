@@ -1,24 +1,11 @@
 <template>
-  <div class="h-full flex flex-col overflow-hidden">
+  <div class="flex h-full flex-1 flex-col overflow-hidden">
     <LayoutTopBar />
-    <div class="h-full flex-1 overflow-hidden p-4 flex flex-col">
+
+    <UContainer class="flex h-full w-full flex-1 flex-col overflow-hidden p-4">
       <slot></slot>
-    </div>
+    </UContainer>
   </div>
 </template>
 
-<script setup lang="ts">
-const user = useSupabaseUser();
-
-watch(
-  () => user.value,
-  () => {
-    if (!user.value) {
-      return navigateTo("/auth/login");
-    }
-
-    navigateTo("/dashboard");
-  },
-  { deep: true }
-);
-</script>
+<script setup lang="ts"></script>

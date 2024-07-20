@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex min-h-screen flex-col items-stretch">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
